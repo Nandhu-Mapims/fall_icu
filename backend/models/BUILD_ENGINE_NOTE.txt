@@ -1,0 +1,12 @@
+TensorRT .engine files cannot be committed or generated without a working TensorRT+CUDA stack on YOUR PC.
+
+If export fails with CUDA error 35 or "factory function returned nullptr":
+  - TensorRT and your NVIDIA driver/CUDA must match (see NVIDIA TensorRT install guide for Windows).
+  - Your PyTorch build (e.g. cu126) can work even when the pip TensorRT wheel cannot init CUDA.
+
+When fixed, from the backend folder run:
+  .venv\Scripts\python.exe scripts\export_tensorrt_engine.py --weights models\yolo26n-pose.pt --output models\yolo26n-pose.engine --imgsz 960 --device 0
+
+Output path: models\yolo26n-pose.engine (must match INFERENCE_IMAGE_SIZE in .env).
+
+Until then: keep using models\yolo26n-pose.onnx (ONNX) or models\yolo26n-pose.pt (PyTorch); the API loads them automatically when .engine is missing.

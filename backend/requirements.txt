@@ -1,0 +1,14 @@
+## Purpose: Python dependencies for FastAPI ICU fall detection backend with CUDA-enabled PyTorch support.
+--extra-index-url https://download.pytorch.org/whl/cu121
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+opencv-python>=4.10.0.84
+numpy>=1.26.4
+ultralytics>=8.3.0
+# TensorRT .engine: install NVIDIA TensorRT wheel matching your CUDA/driver (Ultralytics export docs).
+# ONNX inference: pip install onnxruntime-gpu  (or onnxruntime for CPU) when using YOLO("*.onnx").
+torch>=2.3.0
+torchvision>=0.18.0
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
